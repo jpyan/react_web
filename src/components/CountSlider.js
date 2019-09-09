@@ -1,6 +1,9 @@
 import React from 'react';
 import { Slider, InputNumber, Row, Col } from 'antd';
 
+
+// https://ant.design/components/slider/
+// slider with input number
 export class CountSlider extends React.Component {
     state = {
         inputValue: 2,

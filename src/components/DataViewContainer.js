@@ -35,14 +35,20 @@ export class DataViewContainer extends React.Component {
                     displayTooltip={this.state.displayTooltip}
                 />
                 <div className="filters">
-                    {this.state.chartType === 'hexbin' ? (
-                        <Row className="filter-row">
-                            <Col span={2} offset={3} className="filter-label">Shots:</Col>
-                            <Col span={16}>
-                                <CountSlider onMinCountChange={_.debounce(this.onMinCountChange, 500)} className="filter-control" />
-                            </Col>
-                        </Row>
-                    ) : null}
+                    {
+                        this.state.chartType === 'hexbin' ? (
+                            <Row className="filter-row">
+                                <Col span={2} offset={3} className="filter-label">Shots:</Col>
+                                <Col span={16}>
+                                    {/*_.debounce(function, wait, [immediate])*/}
+                                    {/*Creates and returns a new debounced version of the passed function that will*/}
+                                    {/*postpone its execution until after wait milliseconds have elapsed since the last*/}
+                                    {/*time it was invoked.*/}
+                                    <CountSlider onMinCountChange={_.debounce(this.onMinCountChange, 100)} className="filter-control" />
+                                </Col>
+                            </Row>
+                        ) : null
+                    }
                     <Row className="filter-row">
                         <Col span={10} offset={3}>
                             <RadioGroup onChange={this.onChartTypeChange} value={this.state.chartType} className="filter-control" >
